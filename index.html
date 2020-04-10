@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracker</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+    <!-- Google fonts cdn -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <!-- bootstrap css cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- bootstrap js cdn -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <script src="bootbox.min.js"></script>
+    <script src="bootbox.locales.min.js"></script>
+
+    <script src="Chart.min.js"></script>
+    <link rel="stylesheet" href="Chart.css">
+    <script src="main.js"></script>
+
+    <style>
+        .flex-container {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 1px solid silver;
+            -ms-box-orient: horizontal;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        .nowrap {
+            -webkit-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+        }
+
+        .wrap {
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .wrap li {
+            background: gold;
+        }
+
+        .wrap-reverse {
+            -webkit-flex-wrap: wrap-reverse;
+            flex-wrap: wrap-reverse;
+        }
+
+        .wrap-reverse li {
+            background: deepskyblue;
+        }
+
+        .flex-item {
+            padding: 5px;
+            width: 25rem;
+            margin: 10px;
+        }
+
+
+
+        .map-stats {
+    display: flex;
+    flex-direction: row;
+    
+    width: 100%;
+    height: 7rem;
+    position: relative;
+}
+
+.map-stats .stats:first-child {
+    margin-left: 0;
+} 
+
+
+
+ .map-stats .stats {
+    background: rgba(233, 4, 50, 0.125);
+    color: #ff073a;
+    padding: .5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.map-stats.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: .45s;
+    animation-duration: .45s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+    
+    .stats-bottom {
+    display: flex;
+    flex-direction: row;
+}
+.map-stats .stats.is-blue {
+    background: rgba(0,123,255,.0627451);
+    color:rgba(0, 123, 255, 0.952) ;
+}
+.map-stats .stats.is-green {
+    background: rgba(40,167,69,.12549);
+    color:rgba(51, 100, 5, 0.952) ;
+}
+.map-stats .stats.is-gray {
+    background: rgba(80, 81, 82, 0.063);
+    color:rgba(78, 79, 80, 0.952) ;
+    }
+/* --------------------------------------------------------------------------- */
+
+
+.map-stats1 {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0%;
+    width: 30rem;
+    height: 2rem;
+    /* position: relative; */
+    
+    
+}
+
+
+.map-stats1 .stats:first-child {
+    margin-left: 0;
+} 
+ .map-stats1 .stats1 {
+    background: rgba(233, 4, 50, 0.125);
+    color: #ff073a;
+    padding: .2rem;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: .1rem;
+    width: 100%;
+    
+}
+
+.map-stats1.fadeInUp1 {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: .45s;
+    animation-duration: .45s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    
+}
+
+    .map-stats1.stats-bottom1 {
+    display: flex;
+    flex-direction: row;
+}
+.map-stats1 .stats1.is-blue1 {
+    background: rgba(233, 4, 50, 0.125);
+    color:#ff073a ;
+    
+}
+
+
+.map-stats1 .stats1.is-green1 {
+    background: rgba(40,167,69,.12549);
+    color:rgba(51, 100, 5, 0.952) ;
+}
+.map-stats1 .stats1.is-gray1 {
+    background: rgba(80, 81, 82, 0.063);
+    color:rgba(78, 79, 80, 0.952) ;
+    }
+
+    canvas {
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+		}
+.h.h5{
+    font-size: 20rem;
+}
+    </style>
+
+</head>
+
+<body onload="get()">
+
+
+    <div><h1><span class="badge badge-secondary" style="background-color:rgba(31, 30, 30, 0.068);color: rgb(114, 113, 113);margin: 1%;">Covid 19 
+        <img src="india-flag-icon-32.png" style="margin-bottom:5px;"></span><button type="button" class="btn btn-info"><h5 style="font-weight: bold;" onclick="load_symtoms()">Check Symptoms</h5></button></h1>
+        
+    </span></div>
+    <div class="flex-container wrap"
+        style="margin-right:17%; border:none;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        <div id='allcase1' class="container" onload="header_data()"></div>
+    </div>
+    <div class="flex-container wrap" style="margin:1%; border: none;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+  
+        <div class="chart-container">
+            <canvas id="myChart" width="600" height="250">onload="loadchart()"></canvas>
+        </div></div>
+        <script>function load_Chart() {
+            var arr = []
+            var brr = []
+            var crr = []
+            var drr = []
+            let myChart = document.getElementById('myChart').getContext('2d');
+            // Global Options
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 12;
+            Chart.defaults.global.defaultFontColor = '#181818';
+            Chart.defaults.scale.gridLines.display = false;
+            // chart.canvas.parentNode.style.height = '128px';
+            // chart.canvas.parentNode.style.width = '128px';
+            
+        
+            fetch('https://api.covid19india.org/data.json')
+                .then((res) => res.json())
+                .then((data) => {
+        
+                    var k = 0
+                    data.cases_time_series.forEach(function (s) {
+        
+                        let output = '';
+                        // console.log(s)
+                        output += `${s.date}`;
+                        arr[k] = output
+                        brr[k] = `${s.totalconfirmed}`
+                        crr[k] = `${s.totalrecovered}`
+                        drr[k] = `${s.totaldeceased}`
+                        k += 1
+                    });
+        
+                    // console.log(arr)
+                    // console.log(brr)
+                    let massPopChart = new Chart(myChart, {
+                        type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                       
+                        data: {
+                            labels: arr,
+                            
+                            datasets: [{
+                                label: 'Total',
+                                
+                                data: brr,
+                                backgroundColor: '#007bff',
+                                //backgroundColor:[
+                                //   'rgba(255, 99, 132, 0.6)',
+                                //   'rgba(54, 162, 235, 0.6)',
+                                //   'rgba(255, 206, 86, 0.6)',
+                                //   'rgba(75, 192, 192, 0.6)',
+                                //   'rgba(153, 102, 255, 0.6)',
+                                //   'rgba(255, 159, 64, 0.6)',
+                                // 'rgba(255, 99, 132, 0.6)'
+                                //],
+                                // borderWidth:0,
+                                borderColor: '#007bff',
+                                // hoverBorderWidth:5,
+                                // hoverBorderColor:'#000'
+                                fill: false
+        
+                            }, {
+                                label: 'Recovered',
+                                data: crr,
+                                backgroundColor: 'green',
+                                //backgroundColor:[
+                                //   'rgba(255, 99, 132, 0.6)',
+                                //   'rgba(54, 162, 235, 0.6)',
+                                //   'rgba(255, 206, 86, 0.6)',
+                                //   'rgba(75, 192, 192, 0.6)',
+                                //   'rgba(153, 102, 255, 0.6)',
+                                //   'rgba(255, 159, 64, 0.6)',
+                                // 'rgba(255, 99, 132, 0.6)'
+                                //],
+                                // borderWidth:0,
+                                borderColor: 'green',
+                                // hoverBorderWidth:5,
+                                // hoverBorderColor:'#000'
+                                fill: false
+        
+                            }, {
+                                label: 'Death',
+                                data: drr,
+                                backgroundColor: 'red',
+                                //backgroundColor:[
+                                //   'rgba(255, 99, 132, 0.6)',
+                                //   'rgba(54, 162, 235, 0.6)',
+                                //   'rgba(255, 206, 86, 0.6)',
+                                //   'rgba(75, 192, 192, 0.6)',
+                                //   'rgba(153, 102, 255, 0.6)',
+                                //   'rgba(255, 159, 64, 0.6)',
+                                // 'rgba(255, 99, 132, 0.6)'
+                                //],
+                                // borderWidth:0,
+                                borderColor: 'red',
+                                // hoverBorderWidth:5,
+                                // hoverBorderColor:'#000'
+                                fill: false
+        
+                            },
+                            ],
+                        },
+        
+                        options: {
+                            responsive:true,
+                            title: {
+                                display: true,
+                                
+                                fontSize: 15
+                            },
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                
+                                labels: {
+                                    fontColor: '#181818'
+                                    
+                                }
+                            },
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 0,
+                                    bottom: 0,
+                                    top: 0
+                                }
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: true,
+                                fill: 0
+                            },
+                            hover: {
+                                mode: 'index',
+                                intersect: true
+                            },
+                            scales: {
+                                  xAxes: [{
+                                    ticks: {
+                                        autoSkip: true,
+                                        maxTicksLimit: 20
+                                    }
+}]               
+                            
+                            }
+
+                                            }
+                    });
+        
+                })
+        
+        }
+        load_Chart();</script>
+   
+        <div class="flex-container wrap"
+            style="margin: 1%; border: none;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+            <div class="container"><h6><span style="color:green;"id="last date"></span></h6></div>
+        </div>
+    <div id="here" class="flex-container wrap" style="margin:1%; border: none;" onload="card_loader()"></div>
+</body>
+
+</html>
+
